@@ -36,7 +36,7 @@ gulp.task("styles", function () {
 
 gulp.task("html", function () {
   return gulp
-    .src("src/pug/**/*.pug")
+    .src("src/pug/*.pug")
     .pipe(pug({
       pretty: true
     }))

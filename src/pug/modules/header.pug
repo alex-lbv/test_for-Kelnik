@@ -2,10 +2,23 @@ mixin navLink(link,name)
 	li
 		a(href=link).nav__link=name
 
-header
-	.header
-		ul.nav
-			+navLink("#","1")
-			+navLink("#","2")
-			+navLink("#","3")
-			+navLink("#","4")
+header.header
+	.header__logo
+		a(href="#")
+			img(src="img/logo.png" alt="logo" width="34" height="85")
+	.header__nav
+		input(type="checkbox" id="header__toggle")
+		label(for="header__toggle")
+			span
+		.header__nav-wrap
+			ul.header__nav-list
+				+navLink("#","Объекты")
+				+navLink("#","Компания")
+				+navLink("#","Как купить")
+				+navLink("#","Агентам")
+				+navLink("#","Регионам")
+				+navLink("#","Акции")
+				+navLink("#","Контакты")
+			.header__contacts
+				a(href="tel:8888888898") 8 888 88 88 98
+				span Звони скорее!

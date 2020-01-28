@@ -100,14 +100,13 @@ gulp.task("clean", function () {
 });
 
 gulp.task("scripts", function () {
-  return gulp.src(["src/js/scripts.js", "src/js/library.js", "src/js/library/jquery.js"])
-    .pipe(rigger())
+  return gulp.src(["src/js/scripts.js"])
     .pipe(
       babel({
         presets: ["@babel/env"]
       })
     )
-    //.pipe(uglify())
+    .pipe(uglify())
     .pipe(rename({
       suffix: ".min"
     }))
@@ -139,7 +138,7 @@ gulp.task(
   gulp.series(
     "clean",
     "html",
-    /* gulp.parallel(["styles", "fonts", "images", "svgSprite", "scripts"]), */
+    gulp.parallel(["styles", "fonts", "images", "scripts"]),
     gulp.parallel("serve")
   )
 );

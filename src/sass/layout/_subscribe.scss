@@ -1,0 +1,75 @@
+.subscribe {
+  display: flex;
+  border-radius: 3px;
+  color: #ffffff;
+  background-color: #046380;
+
+  @include screen(l) {
+    padding: 50px 105px 50px 50px;
+    justify-content: space-between;
+  }
+
+  h2 {
+    @include screen(l) {
+      margin-bottom: 10px;
+      font: 600 34px OpenSans;
+    }
+  }
+
+  span {
+    @include screen(l) {
+      font: 400 18px OpenSans;
+    }
+  }
+
+  &__left {
+    @include screen(l) {
+      width: 45%;
+    }
+  }
+
+  &__right {
+    display: flex;
+
+    @include screen(l) {
+      margin-top: 20px;
+      justify-content: flex-end;
+      width: 55%;
+    }
+
+    &>div {
+      display: flex;
+      flex-direction: column;
+
+      @include screen(l) {
+        flex: 1;
+        margin-right: 55px;
+      }
+    }
+  }
+
+  &__input {
+    margin-bottom: 20px;
+    padding: 13px 20px 12px;
+    width: 100%;
+    max-width: 319px;
+    border-radius: 2px;
+
+    &::placeholder {
+      font: 400 18px OpenSans;
+      color: #046380;
+    }
+  }
+
+  &__checkbox-wrap {
+    input {}
+  }
+
+  .btn {
+    @include screen(l) {
+      align-self: flex-start;
+      padding: 17px 15px 16px;
+      max-width: 214px;
+    }
+  }
+}

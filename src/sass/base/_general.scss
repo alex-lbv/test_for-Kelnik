@@ -1,0 +1,28 @@
+body {
+  position: relative;
+  font-family: OpenSans, sans-serif;
+  font-weight: normal;
+  background-color: rgba(239, 236, 202,.3);
+  color: rgba(48, 55, 61, .9);
+}
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+input,
+button {
+  border: none;
+}
+
+.container {
+  margin: auto;
+  width: 100%;
+  max-width: 1280px;
+}

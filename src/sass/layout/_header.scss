@@ -1,0 +1,217 @@
+.header {
+  display: flex;
+  align-items: center;
+  background-color: #002f2f;
+
+  @include screen(xl) {
+    padding: 10px 20px;
+  }
+
+  @include screen(l) {
+    padding: 20px 8.3vw 20px 5.5vw;
+  }
+
+  &__logo {
+    img {
+      @include screen(xl) {
+        width: 25px;
+        height: 50px;
+      }
+
+      @include screen(l) {
+        max-width: 34px;
+        max-height: 85px;
+      }
+    }
+  }
+
+  &__nav {
+    position: relative;
+
+    @include screen(l) {
+      flex: 1;
+    }
+
+    &-wrap {
+      @include screen(xl) {
+        display: block;
+        position: fixed;
+        visibility: hidden;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 50px 0;
+        list-style: none;
+        background-color: #002f2f;
+        box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
+        transition-duration: .25s;
+        overflow-x: scroll;
+      }
+
+      @include screen(l) {
+        display: flex;
+        justify-content: space-between;
+        margin-left: 6.5vw;
+      }
+    }
+
+    &-list {
+      @include screen(xl) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 50px;
+      }
+
+      @include screen(l) {
+        display: flex;
+        align-items: center;
+      }
+
+      li {
+        @include screen(xl) {
+          display: block;
+          padding: 12px 24px;
+          transition-duration: .25s;
+        }
+
+        &:not(:last-of-type) {
+          @include screen(l) {
+            margin-right: 2.4vw
+          }
+        }
+      }
+
+      a {
+        white-space: nowrap;
+        color: #fefefe;
+
+        @include screen(xl) {
+          font: 400 24px OpenSans;
+        }
+
+        @include screen(l) {
+          font: 400 1.25vw OpenSans;
+        }
+      }
+    }
+
+    input {
+      @include screen(xl) {
+        opacity: 0;
+      }
+
+      @include screen(l) {
+        display: none;
+      }
+
+      &:checked~label>span {
+        @include screen(xl) {
+          transform: rotate(45deg);
+        }
+      }
+
+      &:checked~label>span::before {
+        @include screen(xl) {
+          top: 0;
+          transform: rotate(0);
+        }
+      }
+
+      &:checked~label>span::after {
+        @include screen(xl) {
+          top: 0;
+          transform: rotate(90deg);
+        }
+      }
+
+      &:checked~.header__nav-wrap {
+        @include screen(xl) {
+          visibility: visible;
+          left: 0;
+        }
+      }
+    }
+
+    label {
+      @include screen(xl) {
+        display: flex;
+        align-items: center;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        z-index: 1;
+      }
+
+      @include screen(l) {
+        display: none;
+      }
+
+      &>span,
+      &>span::before,
+      &>span::after {
+        @include screen(xl) {
+          display: block;
+          position: absolute;
+          width: 100%;
+          height: 2px;
+          background-color: #fefefe;
+          transition-duration: .25s;
+        }
+      }
+
+      &>span {
+        &::before {
+          @include screen(xl) {
+            content: '';
+            top: -10px;
+          }
+        }
+
+        &::after {
+          @include screen(xl) {
+            content: '';
+            top: 10px;
+          }
+        }
+      }
+    }
+  }
+
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+    color: #fefefe;
+
+    @include screen(xl) {
+      align-items: center;
+    }
+
+    a {
+      color: #fefefe;
+
+      @include screen(xl) {
+        font: 400 30px OpenSans;
+      }
+
+      @include screen(l) {
+        font: 400 1.66vw OpenSans;
+      }
+    }
+
+    span {
+      @include screen(xl) {
+        font: 400 40px OpenSans;
+      }
+
+      @include screen(l) {
+        font: 400 1.04vw OpenSans;
+      }
+    }
+  }
+}

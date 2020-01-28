@@ -1,0 +1,16 @@
+.btn {
+  display: block;
+  width: 100%;
+  text-transform: uppercase;
+  color: #ffffff;
+
+  &--blue {
+    border-radius: 3px;
+    background-color: #046380;
+  }
+
+  &--brown {
+    border-radius: 2px;
+    background-color: #a7a37e;
+  }
+}

@@ -85,6 +85,8 @@
       }
 
       a {
+        position: relative;
+        border-bottom: 1px solid transparent;
         white-space: nowrap;
         color: #fefefe;
 
@@ -94,6 +96,23 @@
 
         @include screen(l) {
           font: 400 1.25vw OpenSans;
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: -10px;
+          left: 0;
+          right: 0;
+          margin: auto;
+          width: 100%;
+          height: 1px;
+          background-color: transparent;
+          transition: background-color .3s;
+        }
+
+        &:hover::after {
+          background-color: #fefefe;
         }
       }
     }

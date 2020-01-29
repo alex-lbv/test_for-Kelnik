@@ -1,0 +1,164 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-top: 40px;
+  min-width: 320px;
+  min-height: 522px;
+  max-width: 320px;
+  max-height: 522px;
+  border-radius: 3px;
+  overflow: hidden;
+  transition: box-shadow .3s;
+
+  &:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  }
+
+  &__image {
+    display: flex;
+    align-items: center;
+    margin: auto auto 35px;
+    min-height: 200px;
+    min-width: 200px;
+    max-width: 200px;
+    max-height: 200px;
+
+    img {
+      margin: auto;
+      max-width: 100%;
+      height: auto;
+      mix-blend-mode: multiply;
+    }
+  }
+
+  &__title {
+    margin: 0 50px 14px;
+    min-height: 65px;
+    max-height: 65px;
+    font: 700 24px OpenSans;
+    color: #002f2f;
+  }
+
+  ul {
+    position: relative;
+    margin: 0 50px 30px;
+    padding-left: 10px;
+    max-height: 45px;
+    display: flex;
+    justify-content: space-between;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 7px;
+      border-radius: 2px;
+      width: 3px;
+      height: 33px;
+      background-color: #046380;
+    }
+  }
+
+  &__type {
+    span {
+      pre {
+        font: 400 16px OpenSans;
+        color: #046380;
+      }
+    }
+  }
+
+  &__area {
+    color: #313639;
+
+    span {
+      &:first-of-type {
+        font: 400 18px OpenSans;
+      }
+
+      &:last-of-type {
+        font: 400 13px OpenSans;
+      }
+    }
+  }
+
+  &__floor {
+    color: #313639;
+
+    span {
+      &:first-of-type {
+        font: 400 18px OpenSans;
+      }
+
+      &:last-of-type {
+        font: 400 13px OpenSans;
+      }
+    }
+  }
+
+  &__price {
+    display: block;
+    margin: 0 50px 22px;
+    font: 600 24px OpenSans;
+    color: #313639;
+  }
+
+  &__footer {
+    display: block;
+    padding: 12px 15px 8px;
+    width: 100%;
+    font: 600 12px OpenSans;
+    color: #ffffff;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  &__sale {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    top: 18px;
+    left: 20px;
+
+    span {
+      display: inline-block;
+      padding: 0 2px;
+      min-width: 34px;
+      text-align: center;
+      text-transform: uppercase;
+      font: 300 12px OpenSans;
+      color: #ffffff;
+      background-color: #ff4444;
+      border-radius: 3px;
+
+      &:first-of-type {
+        margin-right: 20px;
+      }
+    }
+  }
+
+  &--booked {
+    border: 1px solid #a7a37e;
+
+    .card__footer {
+      background-color: #a7a37e;
+    }
+  }
+
+  &--free {
+    border: 1px solid #002f2f;
+
+    .card__footer {
+      background-color: #002f2f;
+    }
+  }
+
+  &--sales {
+    border: 1px solid #a1a1a1;
+
+    .card__footer {
+      background-color: #a1a1a1;
+    }
+  }
+}

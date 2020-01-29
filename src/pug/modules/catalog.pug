@@ -1,3 +1,52 @@
-main.catalog
+- let types = ["без"+ "\r\n" + "отделки","базовая"+ "\r\n" + "отделка","черновая"+ "\r\n" + "отделка"]
+- let modifier = [{name:"booked",value:"Забронировано"},{name:"free",value:"Свободно"},{name:"sales",value:"Продано"}]
+- let amount = ["Студия","Однокомнатная","Двухкомнатная","Трехкомнатная","Четырехкомнатная"]
+
+mixin catalogCard(modifier,link,image,amount,number,types,area,floor,price,sale,bigSale,saleValue)
+  li.catalog__item
+    .card(class="card--"+ modifier.name)
+      a(href=link)
+        .card__image
+          img(src=image, alt="")
+        h3.card__title= amount + " №" + number
+        ul
+          li.card__type
+            span
+              pre= types
+          li.card__area
+            span= area
+            | м&#178;<br>
+            span площадь
+          li.card__floor
+            span= floor
+            | <br>
+            span этаж
+        span.card__price= price
+          span &nbsp;руб.
+        span.card__footer= modifier.value
+        if (sale==true)
+          .card__sale
+            span=saleValue + "%"
+        if (bigSale==true)
+          .card__sale
+            span=saleValue + "%"
+            span шок цена!
+        else
+
+main.catalog.container
   h1 Найдено 666 квартир
-  .container
+  .catalog__container
+    ul.catalog__list
+      +catalogCard(modifier[0],"#","img/catalog-1.jpg",amount[0],44,types[0],"28","12/14","1 900 000")
+      +catalogCard(modifier[1],"#","img/catalog-2.jpg",amount[1],66,types[1],"66","6/6","1 666 666")
+      +catalogCard(modifier[2],"#","img/catalog-3.jpg",amount[2],567,types[2],"65.6","7/14","5 900 000")
+      +catalogCard(modifier[0],"#","img/catalog-4.jpg",amount[3],45,types[0],"56","1/14","12 900 000")
+      +catalogCard(modifier[0],"#","img/catalog-5.jpg",amount[0],25,types[2],"18","12/14","1 900 000",0,1,17)
+      +catalogCard(modifier[0],"#","img/catalog-6.jpg",amount[4],259,types[2],"65.6","7/14","5 900 000",1,0,-6)
+      +catalogCard(modifier[1],"#","img/catalog-7.jpg",amount[1],56,types[0],"36","3/6","5 666 666")
+      +catalogCard(modifier[1],"#","img/catalog-8.jpg",amount[3],46,types[2],"86","1/6","5 696 664")
+      +catalogCard(modifier[0],"#","img/catalog-9.jpg",amount[1],2,types[2],"18","3/14","1 200 000",0,1,-9)
+      +catalogCard(modifier[0],"#","img/catalog-10.jpg",amount[0],12,types[2],"38","6/14","1 500 500",1,0,-6)
+      +catalogCard(modifier[0],"#","img/catalog-11.jpg",amount[1],8,types[2],"48","3/14","6 200 000")
+      +catalogCard(modifier[0],"#","img/catalog-12.jpg",amount[2],23,types[1],"48","3/14","5 255 006",1,0,-6)
+    button.btn.btn--blue Показать еще 20

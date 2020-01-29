@@ -1,17 +1,18 @@
 .subscribe {
   display: flex;
+  margin-bottom: 70px;
   border-radius: 3px;
   color: #ffffff;
   background-color: #046380;
 
   @include screen(l) {
-    padding: 50px 105px 50px 50px;
+    padding: 45px 105px 53px 50px;
     justify-content: space-between;
   }
 
   h2 {
     @include screen(l) {
-      margin-bottom: 10px;
+      margin-bottom: 5px;
       font: 600 34px OpenSans;
     }
   }
@@ -22,19 +23,13 @@
     }
   }
 
-  &__left {
-    @include screen(l) {
-      width: 45%;
-    }
-  }
-
   &__right {
     display: flex;
 
     @include screen(l) {
       margin-top: 20px;
       justify-content: flex-end;
-      width: 55%;
+      width: 52%;
     }
 
     &>div {
@@ -49,11 +44,12 @@
   }
 
   &__input {
-    margin-bottom: 20px;
+    margin-bottom: 17px;
     padding: 13px 20px 12px;
     width: 100%;
     max-width: 319px;
     border-radius: 2px;
+    color: #046380;
 
     &::placeholder {
       font: 400 18px OpenSans;
@@ -62,7 +58,42 @@
   }
 
   &__checkbox-wrap {
-    input {}
+    label {
+      position: relative;
+      padding-left: 28px;
+      cursor: pointer;
+    }
+
+    input {
+      display: none;
+
+      &+label::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        width: 18px;
+        height: 18px;
+        border-radius: 2px;
+        background-color: #ffffff;
+      }
+
+      &:checked+label::before {
+        content: "";
+        position: absolute;
+        left: 4px;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        width: 9px;
+        height: 9px;
+        background: url("../img/check-ico.png") no-repeat;
+        background-size: cover;
+        z-index: 1;
+      }
+    }
   }
 
   .btn {

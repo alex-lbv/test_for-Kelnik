@@ -1,0 +1,34 @@
+.catalog {
+  margin-bottom: 70px;
+
+  &__container {
+    background-color: rgba(255, 255, 255, .9);
+
+    @include screen(l) {
+      padding: 30px 80px 75px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    padding: 0 26px;
+    margin-bottom: 52px;
+    width: calc(100% / 3);
+  }
+
+  h1 {
+    padding: 70px 111px 61px;
+    font: 700 48px OpenSans;
+    color: #002f2f;
+  }
+
+  .btn {
+    padding: 30px 15px 28px;
+    margin: auto;
+    max-width: 533px;
+  }
+}

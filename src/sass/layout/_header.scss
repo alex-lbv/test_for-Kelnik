@@ -1,4 +1,5 @@
 .header {
+  position: relative;
   display: flex;
   align-items: center;
   background-color: #002f2f;
@@ -26,9 +27,14 @@
   }
 
   &__nav {
-    position: relative;
+    @include screen(xl) {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
 
     @include screen(l) {
+      position: relative;
       flex: 1;
     }
 
@@ -48,6 +54,7 @@
         box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
         transition-duration: .25s;
         overflow-x: scroll;
+        z-index: 200;
       }
 
       @include screen(l) {
@@ -126,6 +133,12 @@
         display: none;
       }
 
+      &:checked~label {
+        @include screen(xl) {
+          position: fixed !important;
+        }
+      }
+
       &:checked~label>span {
         @include screen(xl) {
           transform: rotate(45deg);
@@ -158,13 +171,13 @@
       @include screen(xl) {
         display: flex;
         align-items: center;
-        position: fixed;
+        position: absolute;
         top: 20px;
         right: 20px;
         width: 30px;
         height: 30px;
         cursor: pointer;
-        z-index: 1;
+        z-index: 201;
       }
 
       @include screen(l) {

@@ -5,26 +5,48 @@
   color: #ffffff;
   background-color: #046380;
 
+  @include screen(xl) {
+    flex-direction: column;
+    padding: 30px 15px;
+  }
+
   @include screen(l) {
-    padding: 45px 105px 53px 50px;
     justify-content: space-between;
+    padding: 45px 105px 53px 50px;
   }
 
   h2 {
+    margin-bottom: 5px;
+
+    @include screen(xl) {
+      font: 600 27px OpenSans;
+    }
+
     @include screen(l) {
-      margin-bottom: 5px;
       font: 600 34px OpenSans;
     }
   }
 
   span {
-    @include screen(l) {
-      font: 400 18px OpenSans;
+    font: 400 18px OpenSans;
+  }
+
+  &__left {
+    @include screen(xl) {
+      margin-bottom: 20px;
     }
   }
 
   &__right {
     display: flex;
+
+    @include screen(xs) {
+      flex-direction: column;
+    }
+
+    @include screen(m) {
+      justify-content: flex-start
+    }
 
     @include screen(l) {
       margin-top: 20px;
@@ -35,6 +57,19 @@
     &>div {
       display: flex;
       flex-direction: column;
+
+      @include screen(xs) {
+        max-width: 319px;
+      }
+
+      @include screen(m) {
+        flex: 1;
+        margin-right: 40px;
+      }
+
+      @include screen(xl) {
+        margin-bottom: 20px;
+      }
 
       @include screen(l) {
         flex: 1;
@@ -47,9 +82,12 @@
     margin-bottom: 17px;
     padding: 13px 20px 12px;
     width: 100%;
-    max-width: 319px;
     border-radius: 2px;
     color: #046380;
+
+    @include screen(l) {
+      max-width: 319px;
+    }
 
     &::placeholder {
       font: 400 18px OpenSans;
@@ -97,10 +135,8 @@
   }
 
   .btn {
-    @include screen(l) {
-      align-self: flex-start;
-      padding: 17px 15px 16px;
-      max-width: 214px;
-    }
+    align-self: flex-start;
+    padding: 17px 15px 16px;
+    max-width: 214px;
   }
 }

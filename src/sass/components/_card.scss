@@ -2,14 +2,28 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  padding-top: 40px;
-  min-width: 320px;
-  min-height: 522px;
-  max-width: 320px;
-  max-height: 522px;
   border-radius: 3px;
   overflow: hidden;
+  cursor: pointer;
+  background-color: #ffffff;
   transition: box-shadow .3s;
+
+  @include screen (xl) {
+    padding-top: 50px;
+    margin: auto;
+    min-width: 300px;
+    min-height: 522px;
+    max-width: 375px;
+    max-height: 522px;
+  }
+
+  @include screen (l) {
+    padding-top: 40px;
+    min-width: 320px;
+    min-height: 522px;
+    max-width: 320px;
+    max-height: 522px;
+  }
 
   &:hover {
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
@@ -18,11 +32,22 @@
   &__image {
     display: flex;
     align-items: center;
-    margin: auto auto 35px;
     min-height: 200px;
     min-width: 200px;
     max-width: 200px;
     max-height: 200px;
+
+    @include screen(xs) {
+      margin: auto auto 15px;
+    }
+
+    @include screen(m) {
+      margin: auto auto 25px;
+    }
+
+    @include screen(l) {
+      margin: auto auto 35px;
+    }
 
     img {
       margin: auto;
@@ -33,20 +58,42 @@
   }
 
   &__title {
-    margin: 0 50px 14px;
     min-height: 65px;
     max-height: 65px;
     font: 700 24px OpenSans;
     color: #002f2f;
+
+    @include screen(xs) {
+      margin: 0 25px 14px;
+    }
+
+    @include screen(m) {
+      margin: 0 35px 14px;
+    }
+
+    @include screen(l) {
+      margin: 0 50px 14px;
+    }
   }
 
   ul {
     position: relative;
-    margin: 0 50px 30px;
     padding-left: 10px;
     max-height: 45px;
     display: flex;
     justify-content: space-between;
+
+    @include screen(xs) {
+      margin: 0 25px 30px;
+    }
+
+    @include screen(m) {
+      margin: 0 35px 30px;
+    }
+
+    @include screen(l) {
+      margin: 0 50px 30px;
+    }
 
     &::before {
       content: "";
@@ -99,9 +146,20 @@
 
   &__price {
     display: block;
-    margin: 0 50px 22px;
     font: 600 24px OpenSans;
     color: #313639;
+
+    @include screen(xs) {
+      margin: 0 25px 22px;
+    }
+
+    @include screen(m) {
+      margin: 0 25px 22px;
+    }
+
+    @include screen(l) {
+      margin: 0 50px 22px;
+    }
   }
 
   &__footer {
@@ -134,6 +192,33 @@
 
       &:first-of-type {
         margin-right: 20px;
+      }
+    }
+  }
+
+  &__choose {
+    position: absolute;
+    top: 17px;
+    right: 17px;
+
+    input {
+      display: none;
+
+      &+label::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 19px;
+        height: 18px;
+        background: url("../img/star-2.png") no-repeat;
+        z-index: 1;
+        cursor: pointer;
+        transition: background .3s;
+      }
+
+      &:checked+label::after {
+        background: url("../img/star-1.png") no-repeat;
       }
     }
   }

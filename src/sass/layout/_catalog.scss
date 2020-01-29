@@ -1,11 +1,21 @@
 .catalog {
-  margin-bottom: 70px;
+  @include screen(xl) {
+    margin-bottom: 40px;
+  }
+
+  @include screen(l) {
+    margin-bottom: 70px;
+  }
 
   &__container {
-    background-color: rgba(255, 255, 255, .9);
+    @include screen(m) {
+      padding: 30px 20px 40px;
+      background-color: rgba(255, 255, 255, .9);
+    }
 
     @include screen(l) {
       padding: 30px 80px 75px;
+      background-color: rgba(255, 255, 255, .9);
     }
   }
 
@@ -15,20 +25,61 @@
   }
 
   &__item {
-    padding: 0 26px;
-    margin-bottom: 52px;
-    width: calc(100% / 3);
+    @include screen(xs) {
+      margin-bottom: 40px;
+      width: calc(100%);
+    }
+
+    @include screen(m) {
+      padding: 0 10px;
+      margin-bottom: 40px;
+      width: calc(100% / 2);
+    }
+
+    @include screen(l) {
+      padding: 0 26px;
+      margin-bottom: 52px;
+      width: calc(100% / 3);
+    }
   }
 
   h1 {
-    padding: 70px 111px 61px;
-    font: 700 48px OpenSans;
     color: #002f2f;
+
+    @include screen(xs) {
+      padding: 20px 0 20px 20px;
+      font: 700 27px OpenSans;
+    }
+
+    @include screen(m) {
+      padding: 20px 0 20px 20px;
+      font: 700 36px OpenSans;
+    }
+
+    @include screen(l) {
+      padding: 70px 111px 61px;
+      font: 700 48px OpenSans;
+    }
   }
 
   .btn {
-    padding: 30px 15px 28px;
     margin: auto;
-    max-width: 533px;
+
+    @include screen(xs) {
+      max-width: 373px;
+    }
+
+    @include screen(m) {
+      max-width: 500px;
+    }
+
+    @include screen(xl) {
+      padding: 20px 15px;
+    }
+
+    @include screen(l) {
+      padding: 30px 15px 28px;
+      max-width: 533px;
+    }
   }
 }

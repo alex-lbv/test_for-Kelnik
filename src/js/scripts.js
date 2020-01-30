@@ -28,11 +28,9 @@ goTopBtn.addEventListener('click', backToTop);
 document.querySelector('#sortPrice').onclick = function () {
   this.classList.toggle('active');
 }
-
 document.querySelector('#sortAmount').onclick = function () {
   this.classList.toggle('active');
 }
-
 document.querySelector('.catalog__sort-btn--asc').onclick = function () {
   sortList('data-price');
 }
@@ -72,13 +70,10 @@ function sortListDesc(sortType) {
   }
 }
 
-
 function insertAfter(elem, refElem) {
   return refElem.parentNode.insertBefore(elem, refElem.nextSibling);
 }
-
 //  Sort
-
 
 function validate(subscribe, email) {
   let reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
@@ -91,5 +86,34 @@ function validate(subscribe, email) {
     validate.preventDefault();
   }
 }
-
 //  Validation
+
+let requestURL = '../json/card.json';
+
+function sendRequest(method, url) {
+  return new Promise(function (resolve, reject) {
+    let xhr = new XMLHttpRequest();
+
+    xhr.open(method, url);
+
+    xhr.responseType = "json";
+
+    xhr.onload = function () {
+      if (xhr.status >= 400) {
+        reject(xhr.response);
+      } else {
+        resolve(xhr.response);
+      }
+    }
+
+    xhr.onerror = function () {
+      reject(xhr.response);
+    }
+
+    xhr.send();
+  })
+}
+
+sendRequest('GET', requestURL)
+  .then(data => console.log(data))
+  .catch(err => console.log(err))

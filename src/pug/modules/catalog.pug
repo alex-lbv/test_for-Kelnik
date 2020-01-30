@@ -9,9 +9,8 @@ mixin catalogCard(idCard,modifier,link,image,amount,number,types,area,floor,pric
         img(src=image alt="")
       h3.card__title= amount + " №" + number
       ul
-        li.card__type
-          span
-            pre= types
+        li.card__type 
+          pre= types
         li.card__area
           span= area
           | м&#178;<br>
@@ -26,14 +25,14 @@ mixin catalogCard(idCard,modifier,link,image,amount,number,types,area,floor,pric
         input(type="checkbox" id= idCard)
         label(for=idCard)
       span.card__footer= modifier.value
-        if (sale==true)
-          .card__sale
-            span=saleValue + "%"
-        if (bigSale==true)
-          .card__sale
-            span=saleValue + "%"
-            span шок цена!
-        else
+      if (sale==true)
+        .card__sale
+          span=saleValue + "%"
+      if (bigSale==true)
+        .card__sale
+          span=saleValue + "%"
+          span шок цена!
+      else
 
 main
   .container

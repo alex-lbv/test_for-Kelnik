@@ -96,7 +96,7 @@ function sendRequest(method, url) {
 
     xhr.open(method, url);
 
-    xhr.responseType = "json";
+    xhr.responseType = 'json';
 
     xhr.onload = function () {
       if (xhr.status >= 400) {
@@ -114,6 +114,60 @@ function sendRequest(method, url) {
   })
 }
 
-sendRequest('GET', requestURL)
-  .then(data => console.log(data))
-  .catch(err => console.log(err))
+let base;
+let baseElements;
+
+sendRequest('GET', requestURL).then(function (info) {
+  base = info;
+  return Promise;
+}).catch(function (err) {
+  console.log(err)
+})
+
+
+
+document.querySelector('#showMore').onclick = function () {
+  window.setTimeout(function () {
+    baseElements = Object.keys(base).length;
+    let html = '';
+    let amount;
+    let image;
+    let number;
+    let types;
+    let idCard;
+    let modifier = [{
+      name: "booked",
+      value: "Забронировано"
+    }, {
+      name: "free",
+      value: "Свободно"
+    }, {
+      name: "sales",
+      value: "Продано"
+    }];
+
+    base.slice(0, 20).forEach(function (item) {
+      html += '<li class="catalog__item" data-price"' + item.price1 + item.price2 + item.price3 + '" data-amount="' +
+        Object.keys(item.amount).length + '">';
+      html += '<div class="card card--' + item.modifier + '">';
+      html += '<div class="card__image"><img src=' + item.image + ' alt=""></div>';
+      html += '<h3 class="card__title">' + item.amount + ' №' + item.number + '</h3>';
+      html += '<ul><li class="card__type"><pre>' + item.types + '</pre></li>';
+      html += '<li class="card__area"><span>' + item.area + '</span>м&#178;<br><span>площадь</span></li>';
+      html += '<li class="card__floor"><span>' + item.floor + '</span><br/><span>этаж</span></li></ul>';
+      html += '<span class="card__price">' + item.price1 + ' ' + item.price2 + ' ' + item.price3 + '<span>&nbsp;руб.</span></span>';
+      html += '<div class="card__choose"><input type="checkbox" id="' + item.idCard + '">' + '<label for="' + item.idCard + '"></label></div>';
+      html += '<span class="card__footer">' + item.modifierValue + '</span>';
+      if (item.sale) {
+        html += '<div class="card__sale"><span>' + item.saleValue + '%</span></div>';
+      }
+      if (item.bigSale)
+        html += '<div class="card__sale"><span>' + item.saleValue + '%</span><span>шок цена!</span></div>';
+      html += '</div>'
+      html += '</li>';
+    })
+    document.querySelector('#showMore').style.display = 'none';
+    document.querySelector('.catalog__list').insertAdjacentHTML('beforeend', html);
+  }, 100);
+}
+// adds cards

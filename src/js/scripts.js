@@ -130,6 +130,7 @@ sendRequest('GET', requestURL).then(function (info) {
 
 document.querySelector('#showMore').onclick = function () {
   window.setTimeout(function () {
+
     baseElements = Object.keys(base).length;
     let html = '';
     let amount;
@@ -148,7 +149,7 @@ document.querySelector('#showMore').onclick = function () {
       value: "Продано"
     }];
 
-    base.slice(0, 20).forEach(function (item) {
+    Array.prototype.slice.call(base).forEach(function (item) {
       html += '<li class="catalog__item" data-price="' + item.price1 + item.price2 + item.price3 + '" data-amount="' +
         Object.keys(item.amount).length + '">';
       html += '<div class="card card--' + item.modifier + '">';
@@ -170,6 +171,6 @@ document.querySelector('#showMore').onclick = function () {
     })
     document.querySelector('#showMore').style.display = 'none';
     document.querySelector('.catalog__list').insertAdjacentHTML('beforeend', html);
-  }, 100);
+  }, 500);
 }
 // adds cards

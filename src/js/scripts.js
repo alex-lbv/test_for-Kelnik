@@ -149,13 +149,13 @@ document.querySelector('#showMore').onclick = function () {
     }];
 
     base.slice(0, 20).forEach(function (item) {
-      html += '<li class="catalog__item" data-price"' + item.price1 + item.price2 + item.price3 + '" data-amount="' +
+      html += '<li class="catalog__item" data-price="' + item.price1 + item.price2 + item.price3 + '" data-amount="' +
         Object.keys(item.amount).length + '">';
       html += '<div class="card card--' + item.modifier + '">';
       html += '<div class="card__image"><img src=' + item.image + ' alt=""></div>';
       html += '<h3 class="card__title">' + item.amount + ' №' + item.number + '</h3>';
       html += '<ul><li class="card__type"><pre>' + item.types + '</pre></li>';
-      html += '<li class="card__area"><span>' + item.area + '</span>м&#178;<br><span>площадь</span></li>';
+      html += '<li class="card__area"><span>' + item.area + '</span>&nbsp;м&#178;<br><span>площадь</span></li>';
       html += '<li class="card__floor"><span>' + item.floor + '</span><br/><span>этаж</span></li></ul>';
       html += '<span class="card__price">' + item.price1 + ' ' + item.price2 + ' ' + item.price3 + '<span>&nbsp;руб.</span></span>';
       html += '<div class="card__choose"><input type="checkbox" id="' + item.idCard + '">' + '<label for="' + item.idCard + '"></label></div>';

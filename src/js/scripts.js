@@ -27,9 +27,13 @@ goTopBtn.addEventListener('click', backToTop);
 
 document.querySelector('#sortPrice').onclick = function () {
   this.classList.toggle('active');
+  this.classList.add('focus');
+  document.querySelector('#sortAmount').classList.remove('focus');
 }
 document.querySelector('#sortAmount').onclick = function () {
   this.classList.toggle('active');
+  this.classList.add('focus');
+  document.querySelector('#sortPrice').classList.remove('focus');
 }
 document.querySelector('.catalog__sort-btn--asc').onclick = function () {
   sortList('data-price');

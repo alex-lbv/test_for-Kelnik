@@ -49,7 +49,7 @@
     }
 
     @include screen(l) {
-      margin: auto auto 35px;
+      margin: 0 auto 39px;
     }
 
     img {
@@ -75,7 +75,7 @@
     }
 
     @include screen(l) {
-      margin: 0 50px 14px;
+      margin: 0 52px 14px;
     }
   }
 
@@ -95,14 +95,14 @@
     }
 
     @include screen(l) {
-      margin: 0 50px 30px;
+      margin: 0 52px 30px;
     }
 
     &::before {
       content: "";
       position: absolute;
       left: 0;
-      top: 6px;
+      top: 3px;
       border-radius: 2px;
       width: 3px;
       height: 33px;
@@ -111,19 +111,22 @@
   }
 
   &__type {
+    flex: 1;
+
     pre {
-      font: 400 16px/21px OpenSans;
+      font: 400 16px/19px OpenSans;
       color: #046380;
       overflow: hidden;
     }
   }
 
   &__area {
+    flex: .8;
     color: #313639;
 
     span {
       &:first-of-type {
-        font: 400 18px OpenSans;
+        font: 400 18px/21px OpenSans;
       }
 
       &:last-of-type {
@@ -137,7 +140,7 @@
 
     span {
       &:first-of-type {
-        font: 400 18px OpenSans;
+        font: 400 18px/22px OpenSans;
       }
 
       &:last-of-type {
@@ -160,13 +163,13 @@
     }
 
     @include screen(l) {
-      margin: 0 50px 19px;
+      margin: 0 52px 23px;
     }
   }
 
   &__footer {
     display: block;
-    padding: 12px 15px 8px;
+    padding: 12px 15px;
     width: 100%;
     font: 600 12px OpenSans;
     letter-spacing: 0.72px;

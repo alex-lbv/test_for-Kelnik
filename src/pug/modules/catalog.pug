@@ -13,7 +13,7 @@ mixin catalogCard(idCard,modifier,link,image,amount,number,types,area,floor,pric
           pre= types
         li.card__area
           span= area
-          | м&#178;<br>
+          | &nbsp;м&#178;<br>
           span площадь
         li.card__floor
           span= floor
@@ -41,12 +41,16 @@ main
       .catalog__container
         .catalog__sort
           span Сортировать по:
-          div#sortPrice.focus
-            button.catalog__sort-btn.catalog__sort-btn--asc Цене
-            button.catalog__sort-btn.catalog__sort-btn--desc Цене
-          div#sortAmount.focus
-            button.catalog__sort-btn.catalog__sort-btn--amount-desc Комнатам
-            button.catalog__sort-btn.catalog__sort-btn--amount-asc Комнатам
+          div#sortPrice
+            a.catalog__sort-btn.catalog__sort-btn--asc 
+              span Цене
+            a.catalog__sort-btn.catalog__sort-btn--desc 
+              span Цене
+          div#sortAmount
+            a.catalog__sort-btn.catalog__sort-btn--amount-desc
+              span Комнатам
+            a.catalog__sort-btn.catalog__sort-btn--amount-asc
+              span Комнатам
         ul.catalog__list
           +catalogCard("card1",modifier[0],"#","img/catalog-1.jpg",amount[0],44,types[0],"28","12/14","1","900","000")
           +catalogCard("card2",modifier[1],"#","img/catalog-2.jpg",amount[1],666,types[1],"66","6/6","1","666","666")

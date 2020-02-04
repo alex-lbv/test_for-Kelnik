@@ -63,7 +63,7 @@
   &__title {
     min-height: 65px;
     max-height: 65px;
-    font: 700 24px OpenSans;
+    font: 700 24px/31px OpenSans;
     color: #002f2f;
 
     @include screen(xs) {
@@ -102,7 +102,7 @@
       content: "";
       position: absolute;
       left: 0;
-      top: 7px;
+      top: 6px;
       border-radius: 2px;
       width: 3px;
       height: 33px;
@@ -112,8 +112,9 @@
 
   &__type {
     pre {
-      font: 400 16px OpenSans;
+      font: 400 16px/21px OpenSans;
       color: #046380;
+      overflow: hidden;
     }
   }
 
@@ -159,7 +160,7 @@
     }
 
     @include screen(l) {
-      margin: 0 50px 22px;
+      margin: 0 50px 19px;
     }
   }
 
@@ -168,6 +169,7 @@
     padding: 12px 15px 8px;
     width: 100%;
     font: 600 12px OpenSans;
+    letter-spacing: 0.72px;
     color: #ffffff;
     text-transform: uppercase;
     text-align: center;

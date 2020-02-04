@@ -19,7 +19,7 @@
     }
 
     @include screen(l) {
-      padding: 30px 80px 75px;
+      padding: 28px 80px 75px;
     }
   }
 
@@ -61,7 +61,7 @@
     }
 
     @include screen(l) {
-      padding: 56px 105px 55px;
+      padding: 56px 105px 56px;
       font: 700 48px OpenSans;
     }
   }
@@ -108,7 +108,7 @@
 
     @include screen(l) {
       padding-left: 24px;
-      margin-bottom: 46px;
+      margin-bottom: 44px;
       font: 400 14px OpenSans;
     }
 
@@ -131,7 +131,7 @@
         position: absolute;
         top: 0;
         bottom: 0;
-        right: 0;
+        right: 9px;
         margin: auto;
         border-radius: 50%;
         background: url(../img/arrow.svg) no-repeat, rgba(4, 99, 128, .04);
@@ -150,8 +150,11 @@
         }
       }
 
-      button {
-        padding-right: 32px;
+      a {
+        display: block;
+        padding-right: 35px;
+        cursor: pointer;
+
         &:last-of-type {
           display: none;
         }
@@ -162,7 +165,7 @@
           transform: inherit;
         }
 
-        button {
+        a {
           &:first-of-type {
             display: none;
           }
@@ -179,10 +182,17 @@
       outline: none;
       background: transparent;
 
+      span {
+        transition: color .3s, border .3s;
+      }
+
       &:focus,
       &:hover,
       &:active {
-        color: rgb(0, 47, 47);
+        span {
+          border-bottom: 1px dotted;
+          color: rgb(0, 47, 47);
+        }
       }
     }
   }

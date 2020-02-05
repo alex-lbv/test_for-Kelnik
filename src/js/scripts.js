@@ -80,11 +80,13 @@ function insertAfter(elem, refElem) {
 function validate(subscribe, email) {
   let reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
   let address = document.forms[subscribe].elements[email].value;
+  let emailWrap = document.querySelector('.subscribe__wrap');
   if (reg.test(address) == false) {
-    alert('Введите корректный e-mail');
+    emailWrap.classList.add('invalid');
     return false;
   } else {
     alert('Вы успешно подписались');
+    emailWrap.classList.remove('invalid');
     validate.preventDefault();
   }
 }

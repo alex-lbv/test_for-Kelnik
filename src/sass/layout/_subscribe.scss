@@ -53,27 +53,54 @@
       justify-content: flex-end;
       width: 52%;
     }
+  }
 
-    &>div {
-      display: flex;
-      flex-direction: column;
+  &__wrap {
+    position: relative;
+    display: flex;
+    flex-direction: column;
 
-      @include screen(xs) {
-        max-width: 319px;
+    @include screen(xs) {
+      max-width: 319px;
+    }
+
+    @include screen(m) {
+      flex: 1;
+      margin-right: 40px;
+    }
+
+    @include screen(xl) {
+      margin-bottom: 20px;
+    }
+
+    @include screen(l) {
+      flex: 1;
+      margin-right: 55px;
+    }
+
+    span {
+      display: none;
+      position: absolute;
+      top: -25px;
+      left: 0;
+      font: 600 18px OpenSans;
+      color: rgb(240, 107, 107);
+    }
+
+    &.invalid {
+      span {
+        display: block;
       }
 
-      @include screen(m) {
-        flex: 1;
-        margin-right: 40px;
+      .subscribe__input {
+        box-shadow: 2px 2px 2px rgb(240, 107, 107),
+          -2px -2px 2px rgb(240, 107, 107),
+          -2px 2px 2px rgb(240, 107, 107),
+          2px -2px 2px rgb(240, 107, 107);
       }
 
-      @include screen(xl) {
-        margin-bottom: 20px;
-      }
-
-      @include screen(l) {
-        flex: 1;
-        margin-right: 55px;
+      &::placeholder {
+        color: rgb(240, 107, 107);
       }
     }
   }

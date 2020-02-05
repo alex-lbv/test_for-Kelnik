@@ -97,9 +97,6 @@ function sendRequest(method, url) {
     let xhr = new XMLHttpRequest();
 
     xhr.open(method, url);
-
-    xhr.responseType = 'json';
-
     xhr.onload = function () {
       if (xhr.status >= 400) {
         reject(xhr.response);
@@ -107,11 +104,9 @@ function sendRequest(method, url) {
         resolve(xhr.response);
       }
     }
-
     xhr.onerror = function () {
       reject(xhr.response);
     }
-
     xhr.send();
   })
 }
@@ -120,17 +115,13 @@ let base;
 let baseElements;
 
 sendRequest('GET', requestURL).then(function (info) {
-  base = info;
-  return Promise;
+  base = JSON.parse(info);
 }).catch(function (err) {
   console.log(err)
-})
-
-
+});
 
 document.querySelector('#showMore').onclick = function () {
   window.setTimeout(function () {
-
     baseElements = Object.keys(base).length;
     let html = '';
     let amount;

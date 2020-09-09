@@ -10,9 +10,5 @@ $ npm i
 
 ### dev mode
 ```sh
-$ gulp start
-```
-### Production
-```sh
-$ gulp build
+$ gulp dev
 ```
